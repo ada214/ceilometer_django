@@ -23,7 +23,7 @@ Install Django and Django REST framework into the virtualenv
 * pip install djangorestframework
 
 Now, as we have to use existing project, instead of creating new project, copy "project" into virual environment. After copying, your directory will have bin, lib, local, pip-selfcheck.json, project. (except project all other files and folders are created after creating virtual env. "Project" is existing project which we want to run)
-----
+
 * cd project
 
 Now, this directory has manage.py file. To run project on development server use
