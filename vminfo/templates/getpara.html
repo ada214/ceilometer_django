@@ -1,0 +1,71 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org    /TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<body>
+
+<section>
+<h1><a href="{% url 'alarmList' %}"> Show list of alarms </a></h1>
+</section>
+
+
+<h2> {{state}}</h2>
+
+<form name = "para" method = "POST" action="/create_alarm/" >
+ {% csrf_token %}
+  <fieldset>
+    <legend><h2>Alarm creation form :</h2></legend>
+
+    Alarm name:<br>
+    <input type="text" name="alarmname" value="" required="" ><br>
+
+    Description:<br>
+    <input type="text" name="description" value="" placeholder="ex: CPU high usage"><br>
+
+    Existing meters : <br>
+    <select name="meter_name">
+	{% for meter in meterSet %}
+		<option value="{{meter}}">{{meter}}</option>
+	{% endfor %}
+    </select>	
+
+
+<br>	Threshold:<br>
+    <input type="text" name="threshold" value="" required="ex : 20, 30 ,40"> <br>
+
+	Comparison-operator:<br>
+    <input type="text" name="comparison_operator" value="" required="" placeholder="ex:ge, gt, eq, ne, lt, le"><br>
+
+	Statistic:<br>
+    <input type="text" name="statistic" value=""  placeholder = "ex: count, avg, sum, min, max" ><br>
+
+	Resource id:<br>
+
+    <select name="resource_id">
+	{% for id in resourceSet %}
+		<option value="{{id}}">{{id}}</option>
+	{% endfor %}
+    </select>	
+
+<br><br>
+
+
+	
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+</body>
+
+		
+<section>
+<h1><a href="{% url 'logout' %}"> Logout </a></h1>
+</section>
+
+
+
+</html>
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org    /TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<body>
+
+<section>
+<h1><a href="{% url 'alarmList' %}"> Show existing list of alarms </a></h1>
+</section>
+
+<section>
+<h1><a href="{% url 'alarmList' %}"> Delete an alarm  </a></h1>
+</section>
+
+
+<h2> {{state}}</h2>
+
+<form name = "update_alarm" method = "POST" action=".">
+ {% csrf_token %}
+  <fieldset>
+    <legend><h2>Alarm updation form :</h2></legend>
+
+	Alarm names : <br>	
+	<select name="alarm_name">
+        {% for id,name in alarm_list %}
+                <option value="{{id}}">{{name}}</option>
+        {% endfor %}
+    </select>
+
+	
+	<br>    New Threshold:<br>
+    <input type="text" name="threshold" value="" required="ex : 20, 30 ,40"> <br>
+
+        New Comparison-operator:<br>
+    <input type="text" name="comparison_operator" value="" required="" placeholder="ex:ge, gt, eq, ne, lt, le"><br>
+
+        New Statistic:<br>
+    <input type="text" name="statistic" value=""  placeholder = "ex: count, avg, sum, min, max" ><br>
+
+
+    </select>
+
+<br><br>
+
+
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+</body>
+
+
+<section>
+<h1><a href="{% url 'logout' %}"> Logout </a></h1>
+</section>
+
+
+
+</html>
+
+
+

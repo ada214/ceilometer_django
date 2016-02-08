@@ -1,0 +1,66 @@
+
+<html>
+<head><title> List of Alarms present system</title></head>
+
+<body>
+
+
+<section>
+<h1><a href="{% url 'createAlarm' %}"> Create a new alarm </h1>
+</a>
+</section>
+
+
+<section>
+<h1><a href="{% url 'vmlist' %}"> Show details of existing vms </h1>
+</a>
+</section>
+
+
+		
+<section>
+	<h1><a href="{% url 'deleteAlarm' %}"> Delete an alarm </a></h1>
+</section>
+
+
+
+
+
+<h1>Details of Alarms </h1>
+<table border="1">
+
+<tr>
+<td> Id </td>	
+<td> Name </td>
+<td> Description </td>
+<td> Meter name </td>
+<td> State </td>
+</tr>
+{% for id, name, desc, meter, state in alarm_list  %}
+<tr>
+
+<td> {{id}} </td>
+<td> {{name}} </td>
+<td> {{desc}} </td>
+<td> {{meter}} </td>
+<td> {{state}} </td>
+</tr>
+
+{% endfor %}
+
+
+</table>
+
+
+
+
+		
+<section>
+<h1><a href="{% url 'logout' %}"> Logout </a></h1>
+</section>
+
+</body>
+</html>
+
+
+

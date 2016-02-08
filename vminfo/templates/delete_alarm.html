@@ -1,0 +1,51 @@
+<CTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org    /TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<body>
+
+<section>
+<h1><a href="{% url 'alarmList' %}"> Show existing list of alarms </a></h1>
+</section>
+
+
+
+
+<h2> {{status}}</h2>
+
+
+<form name = "delete_alarm" method = "POST" action=".">
+ {% csrf_token %}
+  <fieldset>
+    <legend><h2>Delete alarm form :</h2></legend>
+
+        Alarm names : <br>
+        <select name="alarm_id">
+        {% for id,name in alarm_list %}
+                <option value="{{id}}">{{name}}</option>
+        {% endfor %}
+    </select>
+
+
+
+
+<br><br>
+
+
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+</body>
+
+
+<section>
+<h1><a href="{% url 'logout' %}"> Logout </a></h1>
+</section>
+
+
+
+</html>
+
+
+

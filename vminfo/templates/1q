@@ -1,0 +1,37 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org    /TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<body>
+
+
+<form name = "para" method = "POST" action="/create_alarm/" >
+ {% csrf_token %}
+  <fieldset>
+    <legend>Alarm creation form :</legend>
+    Alarm name:<br>
+    <input type="text" name="alarmname" value="This name should be different that existing"><br>
+    description:<br>
+    <input type="text" name="description" value="CPU usage high"><br><br>
+	meter name:<br>
+    <input type="text" name="meter_name" value="cpu_usage_high"><br>
+	threshold:<br>
+    <input type="text" name="threshold" value="20"><br>
+	comparison-operator:<br>
+    <input type="text" name="comparison_operator" value="gt"><br>
+	statistic:<br>
+    <input type="text" name="statistic" value="avg"><br>
+	resource id:<br>
+    <input type="text" name="resource_id" value="8288c59f-8018-45c8-a184-5aea0db9713d"><br>
+			
+	
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,62 @@
+
+
+<html>
+<head><title> List of VMS present  on Server</title></head>
+
+<body>
+
+<section>
+<h1><a href="{% url 'alarmList' %}"> Show existing list of alarms </a></h1>
+</section>
+
+
+<section>
+<h1><a href="{% url 'updateAlarm' %}"> Update existing alarm  </a></h1>
+</section>
+
+<section>
+<h1><a href="{% url 'deleteAlarm' %}"> Delete an alarm </a></h1>
+</section>
+
+
+<section>
+<h1>Details of Running  VMs </h1>
+<table border="1">
+
+<tr>
+<td> Vm Name </td>
+<td> Zone </td>
+<td> Ipaddress </td>
+<td> Status </td>
+<td> Region </td>
+	
+</tr>
+
+
+
+
+{% for vm_name, zone, ipaddress, status, region   in final_list  %}
+<tr>
+<td> {{vm_name}} </td>
+<td> {{zone}} </td>
+<td> {{ipaddress}} </td>
+<td> {{status}} </td>
+<td> {{region}} </td>
+	
+</tr>
+
+{% endfor %}
+
+
+</table>
+</section>
+<br>
+<br>
+
+<section>
+	<h1><a href="{% url 'logout' %}"> Logout </a></h1>
+</section>
+
+
+</body>
+</html>
